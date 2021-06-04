@@ -19,12 +19,12 @@ class Adapter: RecyclerView.Adapter<Adapter.FishViewHolder>(){
 
     private val list = ArrayList<FishBase>()
     fun setFist(FishBases: ArrayList<FishBase>){
-        list.clear()
+        //list.clear()
         list.addAll(FishBases)
         notifyDataSetChanged()
 
     }
-    inner class FishViewHolder(val binding: AreaRecyclerViewBinding): RecyclerView.ViewHolder(binding.root){
+    inner class FishViewHolder(private val binding: AreaRecyclerViewBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(fishBase: FishBase){
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(fishBase)

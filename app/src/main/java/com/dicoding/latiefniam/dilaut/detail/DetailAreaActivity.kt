@@ -4,6 +4,7 @@ package com.dicoding.latiefniam.dilaut.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 
 
 import com.dicoding.latiefniam.dilaut.R
@@ -38,7 +39,16 @@ class DetailAreaActivity : AppCompatActivity() {
 
         val bundle = Bundle()
         bundle.putString(EXTRA_NAME, tName.toString())
-        Log.d("<DEBUG>", "Succeses: ")
+        Log.d("<SUCCESS>", "Success juga kok: " + tName.toString())
+        binding.apply {
+            tvDetailName.text = tName.name
+            priceNowRupiah.text =tName.price_now
+            priceLaterRupiahFirst.text=tName.price_now
+            priceLaterRupiahSecond.text =tName.price_later
+            Glide.with(this@DetailAreaActivity)
+                .load(tName.avatar_url)
+                .into(ivDetailFish)
+        }
 
 //        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
 //            .get(DetailViewModel::class.java)
